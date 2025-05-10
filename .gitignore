@@ -1,0 +1,10 @@
+.vs
+*.vcxproj.user
+[Ii]gnored/
+Source/sfo2xml/x64
+Source/x64
+Source/Release
+Source/sfo2xml/Release
+Source/Debug
+Source/Debug
+Source/sfo2xml/Debug
