@@ -1,15 +1,25 @@
 #ifndef _HELPERS_H_INCLUDED_
 #define _HELPERS_H_INCLUDED_
+#include <cstring>
 
-#include <Windows.h>
+#ifdef  _WIN32
 #define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+#else
+#include <sys/stat.h>
+#endif
 
 namespace help
 {
 inline static bool FileExists(const char* pInputPath)
 {
+#ifdef _WIN32
 	DWORD attributes = GetFileAttributesA(pInputPath);
 	return (attributes != INVALID_FILE_ATTRIBUTES && !(attributes & FILE_ATTRIBUTE_DIRECTORY));
+#else
+	struct stat buffer;
+	return (stat(pInputPath, &buffer) == 0);
+#endif
 }
 
 inline static char* GetPathWithoutExtension(const char* pInputPath)

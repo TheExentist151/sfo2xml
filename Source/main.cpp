@@ -1,3 +1,4 @@
+#include <cstdio>
 #include "Helpers.h"
 #include "SFOFile.h"					
 
@@ -5,7 +6,7 @@ int main(int argc, char** argv)
 {
 	if (argc == 1)
 	{
-		printf("sfo2xml - SFO to XML converter (1.0)\nUsage: \n\nsfo2xml <input SFO or XML path> [output path]");
+		printf("sfo2xml - SFO to XML converter (1.0)\nUsage: \n\nsfo2xml <input SFO or XML path> [output path]\n");
 		return 0;
 	}
 
@@ -28,7 +29,7 @@ int main(int argc, char** argv)
 
 	if (!help::FileExists(pInputPath))
 	{
-		fprintf(stderr, "[ERROR] Provided input file %s doesn't exist", pInputPath);
+		fprintf(stderr, "[ERROR] Provided input file %s doesn't exist\n", pInputPath);
 		return 1;
 	}
 
